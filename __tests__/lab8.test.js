@@ -48,11 +48,10 @@ describe('Basic user flow for Website', () => {
     // TODO - Step 2
     // Query a <product-item> element using puppeteer ( checkout page.$() and page.$$() in the docs )
     const prodItem = (await page.$$('product-item'))[0];
-    // Grab the shadowRoot of that element (it's a property), then query a button from that shadowRoot.
-    const shadowRoot = await prodItem.attachShadow({mode:open});
-    for ( let i =0; i < 30; i++ ) {
-      console.log(shadowRoot);
-    }
+    // Grab the shadowRoot of that element (it's a property), 
+    // then query a button from that shadowRoot.
+    const shadowRoot = await prodItem.getProperty('shadow-root');
+    await shadowRoot.$()
     const buttonSelector = 'product-item button'
     await page.waitForSelector(buttonSelector);
     await page.click(buttonSelector);
