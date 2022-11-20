@@ -1,4 +1,5 @@
-var mysite = 'https://bkim9.github.io/Lab8_Starter/index.html'
+// my live host is showing lab 7 site for some reason so I used github page instead
+var mysite = 'https://bkim9.github.io/Lab8_Starter/index.html' 
 describe('Basic user flow for Website', () => {
   // First, visit the lab 8 website
   beforeAll(async () => {
