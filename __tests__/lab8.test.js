@@ -49,17 +49,6 @@ describe('Basic user flow for Website', () => {
     // Query a <product-item> element using puppeteer ( checkout page.$() and page.$$() in the docs )
     const prodItem = (await page.$$('product-item'))[0];
     // Grab the shadowRoot of that element (it's a property), 
-<<<<<<< Updated upstream
-    // then query a button from that shadowRoot.
-    const shadowRoot = await prodItem.getProperty('shadow-root');
-    await shadowRoot.$()
-    const buttonSelector = 'product-item button'
-    await page.waitForSelector(buttonSelector);
-    await page.click(buttonSelector);
-    // Once you have the button, you can click it and check the innerText property of the button.
-    // Once you have the innerText property, use innerText['_remoteObject'].value to get the text value of it
-    let value = await innerText.jsonValue()
-=======
     const shadowRoot = await prodItem.getProperty('shadowRoot');
 
     // then query a button from that shadowRoot.    
@@ -74,7 +63,6 @@ describe('Basic user flow for Website', () => {
     // Once you have the innerText property, 
     // use innerText['_remoteObject'].value => .jsonValue(); to get the text value of it
     let value = await _innerText.jsonValue();
->>>>>>> Stashed changes
     expect(value).toBe('Remove from Cart');
   }, 2500);
 
@@ -106,14 +94,11 @@ describe('Basic user flow for Website', () => {
   it('Checking number of items in cart on screen after reload', async () => {
     // console.log('Checking number of items in cart on screen after reload...');
     // TODO - Step 4
-<<<<<<< Updated upstream
-    // Reload the page, then select all of the <product-item> elements, and check every
-=======
+
 
     // Reload the page, 
     await page.goto('http://127.0.0.1:5500/index.html');
     // then select all of the <product-item> elements, and check every
->>>>>>> Stashed changes
     const prodItems = await page.$$('product-item');
     for( let i = 0; i < prodItems.length; i++ ) {
       // element to make sure that all of their 
@@ -178,17 +163,12 @@ describe('Basic user flow for Website', () => {
   it('Checking number of items in cart on screen after reload', async () => {
     // console.log('Checking number of items in cart on screen after reload...');
     // TODO - Step 7
-<<<<<<< Updated upstream
-    // Reload the page once more, then go through each <product-item> to make sure that it has remembered nothing
-    // is in the cart - do this by checking the text on the buttons so that they should say "Add to Cart".
-=======
     // Reload the page once more, 
     await page.goto('http://127.0.0.1:5500/index.html');
     // then go through each <product-item> to make sure that 
     // it has remembered nothing
     // is in the cart - do this 
     // by checking the text on the buttons so that they should say "Add to Cart".
->>>>>>> Stashed changes
     // Also check to make sure that #cart-count is still 0
     const prodItems = await page.$$('product-item');
     for( let i = 0; i < prodItems.length; i++ ) {  
