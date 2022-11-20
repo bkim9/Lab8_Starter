@@ -1,7 +1,8 @@
+var mysite = 'https://bkim9.github.io/Lab8_Starter/index.html'
 describe('Basic user flow for Website', () => {
   // First, visit the lab 8 website
   beforeAll(async () => {
-    await page.goto('http://127.0.0.1:5500/index.html');
+    await page.goto(mysite);
   });
 
   // Next, check to make sure that all 20 <product-item> elements have loaded
@@ -97,7 +98,7 @@ describe('Basic user flow for Website', () => {
 
 
     // Reload the page, 
-    await page.goto('http://127.0.0.1:5500/index.html');
+    await page.goto(mysite);
     // then select all of the <product-item> elements, and check every
     const prodItems = await page.$$('product-item');
     for( let i = 0; i < prodItems.length; i++ ) {
@@ -164,7 +165,7 @@ describe('Basic user flow for Website', () => {
     // console.log('Checking number of items in cart on screen after reload...');
     // TODO - Step 7
     // Reload the page once more, 
-    await page.goto('http://127.0.0.1:5500/index.html');
+    await page.goto(mysite);
     // then go through each <product-item> to make sure that 
     // it has remembered nothing
     // is in the cart - do this 
@@ -195,7 +196,7 @@ describe('Basic user flow for Website', () => {
   // Checking to make sure that localStorage for the cart is as we'd expect for the
   // cart being empty
   it('Checking the localStorage to make sure cart is correct', async () => {
-    console.log('Checking the localStorage...');
+    // console.log('Checking the localStorage...');
     // TODO - Step 8
     // At this point the item 'cart' in localStorage should be '[]', check to make sure it is
     let cart_array = await page.evaluate(() => {
